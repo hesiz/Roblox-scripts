@@ -14,6 +14,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // Database setup: move to ./db/data.db
 const dbDirectoryPath = path.join(__dirname, 'db');
@@ -253,8 +254,8 @@ app.use((req, res) => {
   res.status(404).render('404');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   // eslint-disable-next-line no-console
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en http://${HOST}:${PORT}`);
 });
 
