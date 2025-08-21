@@ -103,6 +103,7 @@ if (categoryCount === 0) {
 }
 
 // Public routes
+app.get(['/index', '/home', '/index.html'], (req, res) => res.redirect(301, '/'));
 app.get('/', (req, res) => {
   const scripts = db
     .prepare(
