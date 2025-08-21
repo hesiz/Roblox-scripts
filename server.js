@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const session = require('express-session');
 const Database = require('better-sqlite3');
@@ -14,8 +15,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Database setup
-const db = new Database(path.join(__dirname, 'data.db'));
+// Database setup: move to ./db/data.db
+const dbDirectoryPath = path.join(__dirname, 'db');
+if (!fs.existsSync(dbDirectoryPath)) {
+  fs.mkdirSync(dbDirectoryPath, { recursive: true });
+}
+const oldDbPath = path.join(__dirname, 'data.db');
+const newDbPath = path.join(dbDirectoryPath, 'data.db');
+try {
+  if (fs.existsSync(oldDbPath) && !fs.existsSync(newDbPath)) {
+    fs.renameSync(oldDbPath, newDbPath);
+  }
+} catch (e) {
+  // ignore any migration error
+}
+const db = new Database(newDbPath);
 db.pragma('journal_mode = WAL');
 
 db.exec(`
