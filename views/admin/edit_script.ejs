@@ -1,0 +1,22 @@
+<h1>Editar script</h1>
+
+<form method="post" action="/admin/scripts/<%= script.id %>" class="form">
+  <label>Título</label>
+  <input type="text" name="title" value="<%= script.title %>" required />
+
+  <label>Categoría</label>
+  <select name="category_id">
+    <option value="">Sin categoría</option>
+    <% categories.forEach(c => { %>
+      <option value="<%= c.id %>" <%= script.category_id === c.id ? 'selected' : '' %>><%= c.name %></option>
+    <% }) %>
+  </select>
+
+  <label>Descripción</label>
+  <textarea name="description" rows="3"><%= script.description %></textarea>
+
+  <label>Código</label>
+  <textarea name="code" rows="12" required><%= script.code %></textarea>
+
+  <button class="btn" type="submit">Actualizar</button>
+</form>

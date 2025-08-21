@@ -1,0 +1,17 @@
+<h1>Scripts recientes</h1>
+
+<div class="grid">
+  <% if (scripts.length === 0) { %>
+    <p>No hay scripts todavía.</p>
+  <% } %>
+  <% scripts.forEach(s => { %>
+    <article class="card">
+      <h3><a href="/script/<%= s.slug %>"><%= s.title %></a></h3>
+      <% if (s.category_name) { %>
+        <span class="badge"><a href="/categoria/<%= s.category_slug %>"><%= s.category_name %></a></span>
+      <% } %>
+      <p><%= (s.description || '').slice(0, 160) %></p>
+      <a class="btn" href="/script/<%= s.slug %>">Ver script</a>
+    </article>
+  <% }) %>
+</div>

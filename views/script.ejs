@@ -1,0 +1,12 @@
+<article class="post">
+  <h1><%= script.title %></h1>
+  <% if (script.category_name) { %>
+    <p class="muted">Categoría: <a href="/categoria/<%= script.category_slug %>"><%= script.category_name %></a></p>
+  <% } %>
+  <% if (script.description) { %>
+    <p><%= script.description %></p>
+  <% } %>
+  <h3>Código</h3>
+  <pre><code><%= script.code %></code></pre>
+  <button class="btn" onclick="navigator.clipboard.writeText(`<%= script.code.replace(/`/g, '\\`') %>`)">Copiar</button>
+</article>
