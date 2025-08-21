@@ -1,0 +1,43 @@
+<h1>Panel de administración</h1>
+
+<section class="admin-grid">
+  <div>
+    <h2>Categorías</h2>
+    <form method="post" action="/admin/categories" class="row">
+      <input type="text" name="name" placeholder="Nueva categoría" required />
+      <button class="btn" type="submit">Crear</button>
+    </form>
+    <ul class="list">
+      <% categories.forEach(c => { %>
+        <li>
+          <span><%= c.name %></span>
+          <form method="post" action="/admin/categories/<%= c.id %>/delete" onsubmit="return confirm('¿Eliminar categoría? Esto no elimina scripts.')">
+            <button class="btn danger">Eliminar</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Scripts</h2>
+    <a class="btn" href="/admin/scripts/new">Nuevo script</a>
+    <ul class="list">
+      <% scripts.forEach(s => { %>
+        <li>
+          <span><strong><%= s.title %></strong> <% if (s.category_name) { %>— <%= s.category_name %> <% } %></span>
+          <div class="row">
+            <a class="btn" href="/admin/scripts/<%= s.id %>/edit">Editar</a>
+            <form method="post" action="/admin/scripts/<%= s.id %>/delete" onsubmit="return confirm('¿Eliminar script?')">
+              <button class="btn danger">Eliminar</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<form method="post" action="/admin/logout">
+  <button class="btn secondary">Cerrar sesión</button>
+</form>

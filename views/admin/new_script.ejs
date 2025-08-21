@@ -1,0 +1,22 @@
+<h1>Nuevo script</h1>
+
+<form method="post" action="/admin/scripts" class="form">
+  <label>Título</label>
+  <input type="text" name="title" required />
+
+  <label>Categoría</label>
+  <select name="category_id">
+    <option value="">Sin categoría</option>
+    <% categories.forEach(c => { %>
+      <option value="<%= c.id %>"><%= c.name %></option>
+    <% }) %>
+  </select>
+
+  <label>Descripción</label>
+  <textarea name="description" rows="3" placeholder="Opcional"></textarea>
+
+  <label>Código</label>
+  <textarea name="code" rows="12" required placeholder="Pega aquí tu script de Roblox"></textarea>
+
+  <button class="btn" type="submit">Guardar</button>
+</form>

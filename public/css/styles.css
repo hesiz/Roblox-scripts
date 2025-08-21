@@ -1,0 +1,32 @@
+:root{--bg:#0f1222;--panel:#151832;--muted:#9aa3b2;--text:#e8ecf2;--primary:#7c5cff;--danger:#ff5c7a;--ok:#35d09a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.site-header{background:rgba(255,255,255,.03);backdrop-filter:saturate(150%) blur(6px);position:sticky;top:0;border-bottom:1px solid rgba(255,255,255,.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{color:#fff;text-decoration:none;font-weight:700}
+.nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+.nav a:hover{color:#fff}
+.main{display:grid;grid-template-columns:250px 1fr;gap:24px;margin-top:24px}
+.sidebar{background:var(--panel);padding:16px;border-radius:10px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar a{color:#fff;text-decoration:none}
+.content{min-height:60vh}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:var(--panel);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+.badge{display:inline-block;background:rgba(124,92,255,.15);color:var(--primary);padding:2px 8px;border-radius:999px;font-size:12px;margin-bottom:6px}
+.btn{appearance:none;border:none;background:var(--primary);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;display:inline-block;cursor:pointer}
+.btn.secondary{background:#2b2f55}
+.btn.danger{background:var(--danger)}
+.row{display:flex;gap:8px;align-items:center}
+.list{list-style:none;padding:0;margin:8px 0}
+.list li{display:flex;align-items:center;justify-content:space-between;background:var(--panel);border:1px solid rgba(255,255,255,.06);padding:10px;border-radius:8px;margin-bottom:8px}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+label{display:block;margin:8px 0 4px;color:var(--muted)}
+input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:#11152b;color:#fff}
+.muted{color:var(--muted)}
+pre{background:#0b0e1e;padding:16px;border-radius:8px;overflow:auto;border:1px solid rgba(255,255,255,.06)}
+.site-footer{border-top:1px solid rgba(255,255,255,.06);padding:24px 0;margin-top:40px;color:var(--muted)}
+.centered{display:grid;place-items:center;min-height:100vh}
+.auth{max-width:360px;width:100%}
+@media (max-width: 900px){.main{grid-template-columns:1fr}.admin-grid{grid-template-columns:1fr}}

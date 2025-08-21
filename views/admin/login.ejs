@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Roblox Scripts</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="centered">
+    <form method="post" action="/admin/login" class="card auth">
+      <h1>Acceder</h1>
+      <% if (error) { %>
+        <p class="error"><%= error %></p>
+      <% } %>
+      <label>Usuario</label>
+      <input type="text" name="username" required />
+      <label>Contraseña</label>
+      <input type="password" name="password" required />
+      <button class="btn" type="submit">Entrar</button>
+      <p class="muted">Usa las credenciales definidas en .env</p>
+    </form>
+  </body>
+</html>

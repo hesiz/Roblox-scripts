@@ -1,0 +1,14 @@
+<h1>Categoria: <%= category.name %></h1>
+
+<div class="grid">
+  <% if (scripts.length === 0) { %>
+    <p>No hay scripts en esta categoría.</p>
+  <% } %>
+  <% scripts.forEach(s => { %>
+    <article class="card">
+      <h3><a href="/script/<%= s.slug %>"><%= s.title %></a></h3>
+      <p><%= (s.description || '').slice(0, 160) %></p>
+      <a class="btn" href="/script/<%= s.slug %>">Ver script</a>
+    </article>
+  <% }) %>
+</div>
