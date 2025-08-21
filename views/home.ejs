@@ -4,8 +4,8 @@
   <% if (scripts.length === 0) { %>
     <p>No hay scripts todavía.</p>
   <% } %>
-  <% scripts.forEach(s => { %>
-    <article class="card">
+  <% scripts.forEach((s, i) => { %>
+    <article class="card" style="animation-delay:<%= (i*60) %>ms">
       <h3><a href="/script/<%= s.slug %>"><%= s.title %></a></h3>
       <% if (s.category_name) { %>
         <span class="badge"><a href="/categoria/<%= s.category_slug %>"><%= s.category_name %></a></span>

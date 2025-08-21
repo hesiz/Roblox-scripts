@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= typeof title !== 'undefined' ? title + ' | ' : '' %>Roblox Scripts</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <script defer src="/js/app.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -16,6 +17,12 @@
         </nav>
       </div>
     </header>
+    <section class="hero">
+      <div class="container">
+        <h1>Comparte y administra tus scripts de Roblox</h1>
+        <p>Explora por categorías, copia el código con un click y mantén todo ordenado.</p>
+      </div>
+    </section>
     <main class="container main">
       <aside class="sidebar">
         <h3>Categorías</h3>
@@ -26,7 +33,9 @@
         </ul>
       </aside>
       <section class="content">
-        <%- body %>
+        <div class="reveal">
+          <%- body %>
+        </div>
       </section>
     </main>
     <footer class="site-footer">

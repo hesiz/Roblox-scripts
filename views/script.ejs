@@ -7,6 +7,6 @@
     <p><%= script.description %></p>
   <% } %>
   <h3>Código</h3>
-  <pre><code><%= script.code %></code></pre>
-  <button class="btn" onclick="navigator.clipboard.writeText(`<%= script.code.replace(/`/g, '\\`') %>`)">Copiar</button>
+  <pre id="code"><code><%= script.code %></code></pre>
+  <button class="btn" data-copy="#code">Copiar</button>
 </article>
